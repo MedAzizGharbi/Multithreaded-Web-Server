@@ -34,4 +34,6 @@ fn handle_connection(mut stream: TcpStream) {
     //     .map(|result| result.unwrap())
     //     .take_while(|line| !line.is_empty())
     //     .collect();
+    // Ekher haja wselnelha : Sending Requests to Threads via Channels
+    // Chwaya terms : Threads , Channels, Results, Closures
 }
