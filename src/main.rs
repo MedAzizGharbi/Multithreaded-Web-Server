@@ -3,12 +3,12 @@ use std::{
     fs,
     io::{BufReader, prelude::*},
     net::{TcpListener, TcpStream},
-    thread,
 };
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap(); //Result<T,E>
     // We will listen to connections comming on the address
     let pool = ThreadPool::new(4);
+    // for stream in listener.incoming().take(2) { Hedhi lel tejrab
     for stream in listener.incoming() {
         //Traja3 iterator mta3 TcpStream
         let stream = stream.unwrap();
@@ -16,6 +16,7 @@ fn main() {
             handle_connection(stream);
         });
     }
+    println!("Shutting Down!");
 }
 fn handle_connection(mut stream: TcpStream) {
     let buf_reader = BufReader::new(&stream);
